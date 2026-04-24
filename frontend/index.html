@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JanSevak</title>
+    <script>
+      if (!localStorage.getItem("token") && localStorage.getItem("jansevak-token")) {
+        localStorage.setItem("token", localStorage.getItem("jansevak-token"));
+        localStorage.removeItem("jansevak-token");
+      }
+
+      if (!localStorage.getItem("token")) {
+        window.location.replace("/login.html");
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              canvas: "#0f1728",
+              header: "#182132",
+              panel: "#101010",
+              accent: "#3b82f6"
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="min-h-screen bg-canvas text-slate-100">
+    <div id="pageNav" class="border-b border-white/10 bg-[#0d1422]"></div>
+    <header class="border-b border-white/10 bg-header">
+      <div class="mx-auto max-w-[1700px] px-5 py-5">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <div class="text-[2.2rem] text-accent">🏛️</div>
+            <h1 id="appTitle" class="text-[1.55rem] font-black tracking-tight text-white">JanSevak</h1>
+          </div>
+          <div class="flex items-center gap-5">
+            <button type="button" class="relative inline-flex h-10 w-10 items-center justify-center text-lg text-white">
+              <span>🔔</span>
+              <span class="absolute right-0 top-0 inline-flex h-6 min-w-[1.5rem] items-center justify-center rounded-full bg-[#da3c34] px-1 text-xs font-bold text-white">3</span>
+            </button>
+            <select id="languageSelect" class="h-10 rounded-lg border border-white/10 bg-[#121212] px-4 text-sm font-semibold text-white outline-none">
+              <option value="en">English</option>
+              <option value="hi">Hindi</option>
+              <option value="te">Telugu</option>
+              <option value="ta">Tamil</option>
+            </select>
+            <button id="profileShortcut" type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent text-sm font-bold text-white transition hover:brightness-110">U</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="border-t border-white/10 bg-[#111111]">
+      <div class="mx-auto max-w-[1700px] px-5 py-4">
+        <form id="homeSearchForm" class="relative">
+          <span class="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-xl text-slate-400">🔎</span>
+          <input
+            id="homeSearchInput"
+            type="search"
+            class="h-[54px] w-full rounded-xl border border-white/10 bg-[#121212] pl-14 pr-14 text-[1rem] text-slate-100 outline-none"
+            placeholder="Search government schemes..."
+          />
+          <button id="homeSearchMic" type="button" class="absolute right-4 top-1/2 -translate-y-1/2 text-lg text-fuchsia-400">
+            🎙️
+          </button>
+        </form>
+
+        <section class="mt-5 border-t border-white/10 pt-6">
+          <h2 id="categoryHeading" class="text-[1.15rem] font-black tracking-tight text-white">Browse by Category</h2>
+          <div class="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-6">
+            <button type="button" data-category="Agriculture" class="feature-card flex min-h-[124px] flex-col items-center justify-center gap-3 rounded-2xl border border-[#4fd363] bg-[#152917]">
+              <span class="text-[3rem] text-[#74e57f]">🌱</span>
+              <span class="category-label text-[1.05rem] font-semibold text-white">Agriculture</span>
+            </button>
+            <button type="button" data-category="Education" class="feature-card flex min-h-[124px] flex-col items-center justify-center gap-3 rounded-2xl border border-[#f2a214] bg-[#3b2a11]">
+              <span class="text-[3rem] text-[#ffc34c]">🎓</span>
+              <span class="category-label text-[1.05rem] font-semibold text-white">Education</span>
+            </button>
+            <button type="button" data-category="Health" class="feature-card flex min-h-[124px] flex-col items-center justify-center gap-3 rounded-2xl border border-[#f2473e] bg-[#3a1b1b]">
+              <span class="text-[3rem] text-[#ff756c]">❤️</span>
+              <span class="category-label text-[1.05rem] font-semibold text-white">Health</span>
+            </button>
+            <button type="button" data-category-search="employment" class="feature-card flex min-h-[124px] flex-col items-center justify-center gap-3 rounded-2xl border border-[#c03fe6] bg-[#2c1630]">
+              <span class="text-[3rem] text-[#d973ef]">💼</span>
+              <span class="category-label text-[1.05rem] font-semibold text-white">Employment</span>
+            </button>
+            <button type="button" data-category="Women" class="feature-card flex min-h-[124px] flex-col items-center justify-center gap-3 rounded-2xl border border-[#ff2e76] bg-[#381621]">
+              <span class="text-[3rem] text-[#ff74a5]">🧍‍♀️</span>
+              <span class="category-label text-[1.05rem] font-semibold text-white">Women</span>
+            </button>
+            <button type="button" data-category-search="youth" class="feature-card flex min-h-[124px] flex-col items-center justify-center gap-3 rounded-2xl border border-[#18d3ef] bg-[#113038]">
+              <span class="text-[3rem] text-[#63ecff]">👥</span>
+              <span class="category-label text-[1.05rem] font-semibold text-white">Youth</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="mt-6 rounded-2xl border border-white/40 bg-[#182132] px-8 py-7">
+          <div class="flex items-center gap-3">
+            <span class="text-3xl text-accent">📍</span>
+            <h2 id="stateHeading" class="text-[1.2rem] font-black tracking-tight text-white">Select Your State</h2>
+          </div>
+          <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-6">
+            <button type="button" data-state="Maharashtra" class="state-button rounded-md border border-white/10 bg-[#121212] px-4 py-3 text-[1.05rem] font-semibold text-white">Maharashtra</button>
+            <button type="button" data-state="Delhi" class="state-button rounded-md border border-white/10 bg-[#121212] px-4 py-3 text-[1.05rem] font-semibold text-white">Delhi</button>
+            <button type="button" data-state="Karnataka" class="state-button rounded-md border border-white/10 bg-[#121212] px-4 py-3 text-[1.05rem] font-semibold text-white">Karnataka</button>
+            <button type="button" data-state="Tamil Nadu" class="state-button rounded-md border border-white/10 bg-[#121212] px-4 py-3 text-[1.05rem] font-semibold text-white">Tamil Nadu</button>
+            <button type="button" data-state="Gujarat" class="state-button rounded-md border border-white/10 bg-[#121212] px-4 py-3 text-[1.05rem] font-semibold text-white">Gujarat</button>
+            <button type="button" data-state="Rajasthan" class="state-button rounded-md border border-white/10 bg-[#121212] px-4 py-3 text-[1.05rem] font-semibold text-white">Rajasthan</button>
+            <button type="button" data-state="Uttar Pradesh" class="state-button rounded-md border border-white/10 bg-[#121212] px-4 py-3 text-[1.05rem] font-semibold text-white">Uttar Pradesh</button>
+            <button type="button" data-state="West Bengal" class="state-button rounded-md border border-white/10 bg-[#121212] px-4 py-3 text-[1.05rem] font-semibold text-white">West Bengal</button>
+            <button type="button" data-state="Madhya Pradesh" class="state-button rounded-md border border-white/10 bg-[#121212] px-4 py-3 text-[1.05rem] font-semibold text-white">Madhya Pradesh</button>
+            <button type="button" data-state="Bihar" class="state-button rounded-md border border-white/10 bg-[#121212] px-4 py-3 text-[1.05rem] font-semibold text-white">Bihar</button>
+            <button type="button" data-state="Telangana" class="state-button rounded-md border border-white/10 bg-[#121212] px-4 py-3 text-[1.05rem] font-semibold text-white">Telangana</button>
+            <button type="button" data-state="Andhra Pradesh" class="state-button rounded-md border border-white/10 bg-[#121212] px-4 py-3 text-[1.05rem] font-semibold text-white">Andhra Pradesh</button>
+            <button id="viewAllStatesButton" type="button" data-state-view-all="true" class="rounded-md border border-white/10 bg-[#121212] px-4 py-3 text-[1.05rem] font-semibold text-white">View All</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="/config.js"></script>
+    <script src="/session.js"></script>
+    <script src="/navigation.js"></script>
+    <script src="/translations.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>

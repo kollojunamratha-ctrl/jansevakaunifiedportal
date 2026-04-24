@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JanSevak Scheme Details</title>
+    <script>
+      if (!localStorage.getItem("token") && localStorage.getItem("jansevak-token")) {
+        localStorage.setItem("token", localStorage.getItem("jansevak-token"));
+        localStorage.removeItem("jansevak-token");
+      }
+
+      if (!localStorage.getItem("token")) {
+        window.location.replace("/login.html");
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              canvas: "#0b1220",
+              panel: "#111a2d",
+              accent: "#4ea1ff",
+              accentSoft: "#172a48"
+            },
+            boxShadow: {
+              card: "0 20px 60px rgba(0, 0, 0, 0.28)"
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="min-h-screen bg-canvas text-slate-100">
+    <div id="pageNav" class="border-b border-white/10 bg-[#0d1422]"></div>
+    <main class="mx-auto max-w-5xl px-4 py-8 sm:px-6">
+      <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <a id="backToSchemesLink" href="/schemes.html" class="inline-flex rounded-xl border border-white/10 bg-panel px-4 py-2 text-sm">← Back to schemes</a>
+        <div class="flex flex-wrap items-center gap-3">
+          <select id="languageSelect" class="rounded-full border border-white/10 bg-panel px-4 py-2 text-sm">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="te">Telugu</option>
+            <option value="ta">Tamil</option>
+          </select>
+          <div id="sessionControls"></div>
+        </div>
+      </div>
+      <section id="detailContainer" class="rounded-3xl border border-white/10 bg-panel p-6 shadow-card sm:p-8">
+        <p id="detailLoadingText" class="text-sm text-slate-400">Loading scheme details...</p>
+      </section>
+    </main>
+
+    <script src="/config.js"></script>
+    <script src="/session.js"></script>
+    <script src="/navigation.js"></script>
+    <script src="/translations.js"></script>
+    <script src="/scheme-utils.js"></script>
+    <script src="/scheme.js"></script>
+  </body>
+</html>

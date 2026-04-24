@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": "a26ebc15-ee2f-4eae-ba71-3418e2267dd6",
+      "phone": "9849781454",
+      "password": "$2b$10$KRymeFE1z9ic.HuZdjenzuj.F1WxMDGonZsM/.z/RqIZONQMzO/ou",
+      "createdAt": "2026-04-22T16:03:06.818Z"
+    },
+    {
+      "id": "e81cd212-2f7e-49c0-87a8-f11f60cde2bf",
+      "phone": "9849781343",
+      "password": "$2b$10$vi26UaDIT0bIR82PCJczsezpYe8qyJl5um12sR9HeEcNlTPzjY0i6",
+      "createdAt": "2026-04-23T16:46:13.346Z"
+    },
+    {
+      "id": "d9c64e34-210e-432e-96f6-0142baa470f5",
+      "phone": "9849781354",
+      "password": "$2b$10$TuR7PuiMkkRf3rZ3dsBmM.80sOC9tzbFgjZvgcM3Qs4C09.IZXiZe",
+      "createdAt": "2026-04-23T17:37:39.511Z"
+    },
+    {
+      "id": "979b9fc6-759c-4309-a14b-e954c97305bb",
+      "phone": "7569376132",
+      "password": "$2b$10$rK6QqJh57oVLlBrI71Grq./5Ju7zUhqpm7epFb/gi/LW5tvtDcY4e",
+      "createdAt": "2026-04-23T18:10:57.024Z"
+    },
+    {
+      "id": "fdedf22d-b161-4cfa-a444-3aa9116057cf",
+      "phone": "9439014841",
+      "password": "$2b$10$KcpArwbfkVV/kRDSApRTVObMoxeLymbCBkyXbQqYtVcfARJA6cdPm",
+      "name": "Test User",
+      "age": 28,
+      "state": "Telangana",
+      "address": "Hyderabad",
+      "aadhar": "123456789012",
+      "schemesApplied": 0,
+      "createdAt": "2026-04-24T04:50:53.040Z"
+    }
+  ]
+}

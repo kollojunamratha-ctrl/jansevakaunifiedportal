@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">JanSevak</string>
+    <string name="title_activity_main">JanSevak</string>
+    <string name="package_name">com.jansevak.app</string>
+    <string name="custom_url_scheme">com.jansevak.app</string>
+</resources>

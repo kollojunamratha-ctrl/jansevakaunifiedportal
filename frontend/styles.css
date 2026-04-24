@@ -1,0 +1,32 @@
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.scheme-image {
+  background:
+    linear-gradient(135deg, rgba(78, 161, 255, 0.18), rgba(23, 42, 72, 0.88)),
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.18), transparent 32%);
+}
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.feature-card {
+  border-width: 1px;
+  border-radius: 1.5rem;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.feature-card:hover,
+.feature-card.is-active {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+}

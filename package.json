@@ -1,0 +1,26 @@
+{
+  "name": "jansevak",
+  "version": "1.0.0",
+  "description": "JanSevak - production-ready government schemes discovery platform for India",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js",
+    "sync-schemes": "node backend/scripts/syncSchemes.js",
+    "cap:init": "npx cap init JanSevak com.jansevak.app --web-dir frontend",
+    "cap:add:android": "npx cap add android",
+    "cap:copy": "npx cap copy",
+    "cap:open:android": "npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.6.2",
+    "@capacitor/cli": "^7.6.2",
+    "@capacitor/core": "^7.6.2",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.9.5"
+  }
+}
